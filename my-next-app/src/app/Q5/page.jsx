@@ -56,10 +56,7 @@ export default function Home() {
 
         <SecondaryTitle>Now let's enter your phone number</SecondaryTitle>
         <form onSubmit={handleSubmit}>
-          <label
-            htmlFor="default-search"
-            className="mb-2 text-sm font-medium text-gray-900"
-          >
+          <label htmlFor="default-search" className="mb-2 text-sm font-medium">
             Mobile Number
           </label>
           <p className="text-xs pb-2 ">
@@ -69,7 +66,7 @@ export default function Home() {
           <input
             type="tel"
             placeholder=""
-            className=" w-full p-3 ps-10 text-sm text-gray-900 border border-[#1C1C1C]  "
+            className=" w-full p-3 ps-10 text-sm text-[#939393] border border-[#1C1C1C]  "
             value={number}
             onChange={handleNumberChange}
           />
@@ -83,7 +80,7 @@ export default function Home() {
 
           <label
             htmlFor="default-search"
-            className="mb-2 text-sm font-medium text-gray-900 "
+            className="mb-2 text-sm font-medium  "
           >
             Your Email Address
           </label>
@@ -96,7 +93,7 @@ export default function Home() {
             placeholder=""
             value={email}
             onChange={handleEmailChange}
-            className=" w-full p-3 ps-6 text-sm text-gray-900 border border-[#1C1C1C]  "
+            className=" w-full p-3 ps-6 text-sm text-[#939393] border border-[#1C1C1C]  "
           />
           {emailError ? (
             <p className="text-sm font-bold "> Please enter a valid email</p>

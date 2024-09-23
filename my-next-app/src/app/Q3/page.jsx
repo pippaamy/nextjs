@@ -50,7 +50,7 @@ export default function Home() {
               required
               type="search"
               id="default-search"
-              className="p-2 px-5 text-sm text-gray-900 border border-[#1C1C1C] text-left  "
+              className="p-2 px-5 text-sm text-[#939393] border border-[#1C1C1C] text-left  "
               placeholder="Enter your postcode"
               value={postcode}
               onChange={handlePostcodeChange}

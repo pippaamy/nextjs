@@ -80,7 +80,7 @@ export default function Home() {
             <div className="bg-[#EFEFEF] pb-6 space-y-3">
               <label
                 htmlFor="default-search"
-                className=" px-3 text-sm font-medium text-gray-900 "
+                className=" px-3 text-sm font-medium text-[#1C1C1C]"
               >
                 Enter Registration
               </label>
@@ -90,7 +90,7 @@ export default function Home() {
                 placeholder="Enter Registration"
                 value={registration}
                 onChange={handleRegistrationChange}
-                className=" w-full max-w-[95%] p-3  text-sm text-gray-900 border border-[#1C1C1C] ml-2"
+                className=" w-full max-w-[95%] p-3  text-sm text-[#939393] border border-[#1C1C1C] ml-2"
               />
               {registrationError ? (
                 <p className="p-3">Enter a valid registration</p>
