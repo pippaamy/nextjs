@@ -5,10 +5,13 @@ import StarRating from "../components/StarRating";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import CombinedFooter from "../components/CombinedFooter";
+import ProgressBar from "../components/ProgressBar";
+import SecondaryTitle from "../components/SecondaryTitle";
+import Button from "../components/Button";
 
 export default function Home() {
   const router = useRouter();
-  const registrationRegex = /^[A-Z]{2}[0-9]{2}\s?[A-Z]{3}$/;
+  const registrationRegex = /^[A-Za-z]{2}[0-9]{2}\s?[A-Za-z]{3}$/;
 
   const [lender, setLender] = useState("");
   const [registration, setRegistration] = useState("");
@@ -38,7 +41,7 @@ export default function Home() {
 
   const handleRegistrationChange = (event) => {
     setRegistration(event.target.value);
-
+    setRegistrationError(false);
     const isValid = registrationRegex.test(event.target.value);
 
     setIsValidRegistration(isValid);
@@ -57,13 +60,11 @@ export default function Home() {
 
   return (
     <div className="bg-[#FAFAFA]">
-      <div className="w-full bg-[#4376BE]  h-6 ">
-        <div className=" bg-[#3EBE5A] h-6 " style={{ width: "90%" }}></div>
-      </div>
+      <ProgressBar percentage="90%" />
       <div className="p-6">
-        <h2 className=" text-2xl font-bold pb-4 ] ">
+        <SecondaryTitle>
           One more thing! Details for your lender(s) & vehicle(s)
-        </h2>
+        </SecondaryTitle>
         <p className=" pb-5">
           Please provide details about your finance agreement(s) to help us
           speed up the process
@@ -92,17 +93,13 @@ export default function Home() {
                 className=" w-full max-w-[95%] p-3  text-sm text-gray-900 border border-[#1C1C1C] ml-2"
               />
               {registrationError ? (
-                <p className="p-3">Enter a valid registration </p>
+                <p className="p-3">Enter a valid registration</p>
               ) : null}
             </div>
 
             <div className="bg-[#FAFAFA] p-6"></div>
-            <button
-              type="submit"
-              className="w-full px-8 py-3 bg-[#3EBE5A]  text-white text-xl border-[1px] border-b-4 border-solid border-[#1C1C1C]"
-            >
-              Submit
-            </button>
+
+            <Button type="submit">Submit</Button>
           </form>
         </div>
         <p className=" text-center underline pt-2">Skip this step</p>

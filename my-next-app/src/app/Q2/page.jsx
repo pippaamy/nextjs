@@ -6,6 +6,9 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import CombinedFooter from "../components/CombinedFooter";
 import { FaSortDown } from "react-icons/fa";
+import ProgressBar from "../components/ProgressBar";
+import SecondaryTitle from "../components/SecondaryTitle";
+import Button from "../components/Button";
 
 export default function Home() {
   const router = useRouter();
@@ -59,14 +62,14 @@ export default function Home() {
 
   return (
     <div className="bg-[#FAFAFA]">
-      <div className="w-full bg-[#4376BE]  h-6 ">
-        <div className=" bg-[#3EBE5A] h-6 " style={{ width: "20%" }}></div>
-      </div>
+      <ProgressBar percentage="20%" />
+
       <div className="p-6 pt-8 ">
         <p className="text-sm font-bold ">That's great! Next...</p>
-        <h2 className=" text-2xl font-bold pb-4 ">
+
+        <SecondaryTitle>
           Select the lender(s) that you used to finance your vehicle(s):
-        </h2>
+        </SecondaryTitle>
 
         <p className="text-sm pb-4 ">
           Please only select lender(s) that did not tell you they would receive
@@ -137,13 +140,8 @@ export default function Home() {
             })}
           </div>
         </div>
-        <div className="pt-3">
-          <button
-            onClick={handleClick}
-            className="w-full px-8 py-3 bg-[#3EBE5A]  text-white text-xl border-[1px] border-b-4 border-solid border-[#1C1C1C] "
-          >
-            Next
-          </button>
+        <div className="pt-8">
+          <Button onClick={handleClick}>Next</Button>
         </div>
         <LargestRefund />
         <StarRating />

@@ -5,6 +5,8 @@ import LargestRefund from "./components/LargestRefund";
 import StarRating from "./components/StarRating";
 import { useRouter } from "next/navigation";
 import PageOneFooter from "./components/PageOneFooter";
+import ProgressBar from "./components/ProgressBar";
+import SecondaryTitle from "./components/SecondaryTitle";
 
 export default function Home() {
   const router = useRouter();
@@ -15,27 +17,24 @@ export default function Home() {
   };
 
   return (
-    <div className="">
-      <div className="w-full bg-[#4376BE]  h-6 ">
-        <div className=" bg-[#3EBE5A] h-6 " style={{ width: "10%" }}></div>
-      </div>
-
+    <div>
+      <ProgressBar percentage="10%" />
       <div className="p-6 pt-8 bg-[#FAFAFA] ">
-        <h2 className="text-lg">
+        <h3 className="text-lg">
           <span className="font-bold text-[#3EBE5A]">Successful</span> drivers
-          could claim up to{" "}
-          <span className="font-bold text-[#3EBE5A]">£10,446.46</span> back from
-          their lender!
-        </h2>
-        <p className="text-xs pt-3">
+          could claim up to
+          <span className="font-bold text-[#3EBE5A]"> £10,446.46</span> back
+          from their lender!
+        </h3>
+        <p className="text-xs pt-3 pb-6">
           Find out in <span className="font-bold">60 seconds </span>if you
           qualify to claim for a{" "}
           <span className="font-bold">car finance refund</span>
         </p>
-        <h2 className="pt-6 text-2xl font-semibold">
-          {" "}
+        <SecondaryTitle>
           Have you had a car on finance before 2021?
-        </h2>
+        </SecondaryTitle>
+
         <div className="flex pt-8  space-x-4">
           <button
             onClick={handleClick}

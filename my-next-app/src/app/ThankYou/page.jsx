@@ -7,6 +7,8 @@ import { FaXTwitter } from "react-icons/fa6";
 import tick from "../../../public/images/tick.png";
 
 import CombinedFooter from "../components/CombinedFooter";
+import ProgressBar from "../components/ProgressBar";
+import SecondaryTitle from "../components/SecondaryTitle";
 
 export default function Home() {
   const [firstName, setFirstName] = useState("");
@@ -19,21 +21,18 @@ export default function Home() {
 
   return (
     <div className="bg-[#FAFAFA]">
-      <div className="w-full bg-[#4376BE]  h-6 ">
-        <div className=" bg-[#3EBE5A] h-6 " style={{ width: "100%" }}></div>
-      </div>
+      <ProgressBar percentage="100%" />
       <div className="p-6">
-        <h2 className=" text-2xl font-bold pb-4 ">Thank you, {firstName}!</h2>
+        <SecondaryTitle>Thank you, {firstName}!</SecondaryTitle>
         <p className="pb-4">
           Our specialist team has now received your compensation claim.
         </p>
-        <p>
+        <p className="pb-4">
           We will review your information, and one of our advisors will be in
           touch soon to discuss what will happen next.
         </p>
-        <h2 className=" pt-4 text-2xl font-bold pb-4 ">
-          Help your close ones claim!
-        </h2>
+
+        <SecondaryTitle> Help your close ones claim!</SecondaryTitle>
         <p className="pb-4">
           Your friends and family may have financed a vehicle before 2021.
         </p>

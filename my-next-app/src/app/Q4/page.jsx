@@ -5,6 +5,9 @@ import StarRating from "../components/StarRating";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import CombinedFooter from "../components/CombinedFooter";
+import ProgressBar from "../components/ProgressBar";
+import SecondaryTitle from "../components/SecondaryTitle";
+import Button from "../components/Button";
 
 export default function Home() {
   const router = useRouter();
@@ -30,14 +33,11 @@ export default function Home() {
 
   return (
     <div>
-      <div className="w-full bg-[#4376BE]  h-6 ">
-        <div className=" bg-[#3EBE5A] h-6 " style={{ width: "40%" }}></div>
-      </div>
+      <ProgressBar percentage="40%" />
       <div className="p-6  bg-[#FAFAFA]">
         <p className="text-sm font-bold ">Let's get to know you more...</p>
-        <h2 className=" text-2xl font-bold pb-4 ">
-          What's your name and date of birth?
-        </h2>
+
+        <SecondaryTitle> What's your name and date of birth?</SecondaryTitle>
         <p className="text-sm pb-4 ">We need this for anti-fraud purposes.</p>
         <form onSubmit={handleSubmit} className="max-w-md mx-auto  ">
           <div className="mb-4">
@@ -143,12 +143,7 @@ export default function Home() {
             </div>
           </div>
 
-          <button
-            type="submit"
-            className="w-full px-8 py-3 bg-[#3EBE5A]  text-white text-xl border-[1px] border-b-4 border-solid border-[#1C1C1C]"
-          >
-            Next
-          </button>
+          <Button type="submit">Next</Button>
         </form>
         <LargestRefund />
         <StarRating />

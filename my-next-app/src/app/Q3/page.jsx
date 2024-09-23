@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import CombinedFooter from "../components/CombinedFooter";
+import ProgressBar from "../components/ProgressBar";
+import SecondaryTitle from "../components/SecondaryTitle";
 
 export default function Home() {
   const router = useRouter();
@@ -25,21 +27,18 @@ export default function Home() {
 
   const handlePostcodeChange = (event) => {
     setPostcode(event.target.value);
-
+    setError(false);
     const isValid = postcodeRegex.test(event.target.value);
     setIsValidPostcode(isValid);
   };
 
   return (
     <div>
-      <div className="w-full bg-[#4376BE]  h-6 ">
-        <div className=" bg-[#3EBE5A] h-6 " style={{ width: "30%" }}></div>
-      </div>
+      <ProgressBar percentage="30%" />
       <div className="p-6 bg-[#FAFAFA] pb-32">
         <p className="text-sm font-bold ">Thanks for that...</p>
-        <h2 className=" text-2xl font-bold pb-4 ">
-          Now, let's find your address
-        </h2>
+
+        <SecondaryTitle> Now, let's find your address</SecondaryTitle>
 
         <form onSubmit={handleSubmit}>
           <label htmlFor="default-search" className="mb-2 text-lg ">
@@ -59,7 +58,7 @@ export default function Home() {
 
             <button
               type="submit"
-              className="text-white bg-[#4376BE] hover:bg-blue-800  focus:ring-blue-300 font-medium  text-sm px-12 py-2 flex items-center "
+              className="text-white bg-[#4376BE] hover:bg-blue-800  focus:ring-blue-300 font-medium  text-sm px-8 py-2 flex items-center "
             >
               <IoIosSearch className="mr-2" /> SEARCH
             </button>

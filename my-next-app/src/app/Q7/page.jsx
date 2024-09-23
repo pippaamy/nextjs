@@ -5,6 +5,9 @@ import StarRating from "../components/StarRating";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import CombinedFooter from "../components/CombinedFooter";
+import ProgressBar from "../components/ProgressBar";
+import SecondaryTitle from "../components/SecondaryTitle";
+import Button from "../components/Button";
 
 export default function Home() {
   const router = useRouter();
@@ -33,19 +36,17 @@ export default function Home() {
   };
   return (
     <div className="bg-[#FAFAFA]">
-      <div className="w-full bg-[#4376BE]  h-6 ">
-        <div className=" bg-[#3EBE5A] h-6 " style={{ width: "70%" }}></div>
-      </div>
+      <ProgressBar percentage="70%" />
       <div className="p-6">
         <p className="text-sm font-bold">That's now submitted!</p>
-        <h2 className=" text-2xl font-bold pb-4 ">Are you owed more?</h2>
-        <p>
-          Check if you've had car finace with any of these popular lenders used
+
+        <SecondaryTitle> Are you owed more?</SecondaryTitle>
+        <p className="pb-4">
+          Check if you've had car finance with any of these popular lenders used
           by our customers.
         </p>
-        <h2 className="pt-4 text-2xl font-bold pb-4 ">
-          Choose your additional lender(s) below:
-        </h2>
+
+        <SecondaryTitle>Choose your additional lender(s) below:</SecondaryTitle>
         <div className=" space-y-2">
           <button className="w-full flex-1 px-4 py-2 bg-white text-black border-[1px]  border-solid border-[#1C1C1C] text-left">
             <input
@@ -93,7 +94,7 @@ export default function Home() {
           Based Agreement for all the additional lenders selected above
         </p>
         <p className="pt-4 text-xs pb-6">
-          (If you don't wish to check any additional lenders,click 'Submit' to
+          (If you don't wish to check any additional lenders, click 'Submit' to
           continue)
         </p>
         <div className="space-y-4">
@@ -103,12 +104,8 @@ export default function Home() {
           >
             View Courmacs Legal Terms & Conditions here
           </button>
-          <button
-            onClick={handleClick}
-            className="w-full px-8 py-3 bg-[#3EBE5A]  text-white text-xl border-[1px] border-b-4 border-solid border-[#1C1C1C]"
-          >
-            Submit
-          </button>
+
+          <Button onClick={handleClick}>Submit</Button>
         </div>
         <LargestRefund />
         <StarRating />

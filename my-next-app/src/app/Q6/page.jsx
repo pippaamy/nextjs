@@ -8,6 +8,9 @@ import React, { useRef } from "react";
 import SignatureCanvas from "react-signature-canvas";
 import CombinedFooter from "../components/CombinedFooter";
 import { FaEraser } from "react-icons/fa6";
+import ProgressBar from "../components/ProgressBar";
+import SecondaryTitle from "../components/SecondaryTitle";
+import Button from "../components/Button";
 
 export default function Home() {
   const router = useRouter();
@@ -32,14 +35,11 @@ export default function Home() {
 
   return (
     <div>
-      <div className="w-full bg-[#4376BE]  h-6 ">
-        <div className=" bg-[#3EBE5A] h-6 " style={{ width: "60%" }}></div>
-      </div>
+      <ProgressBar percentage="60%" />
       <div className="p-6 bg-[#FAFAFA]">
         <p className="pb-2 text-sm font-bold ">Thanks for that, {firstName}!</p>
-        <h2 className=" text-2xl font-bold pb-6  ">
-          Please sign below to speed things up!
-        </h2>
+
+        <SecondaryTitle> Please sign below to speed things up!</SecondaryTitle>
         <p className="border-[1.5px]  border-solid border-[#1C1C1C] p-3 text-xs bg-[#4376BE] text-white text-center border-b-0">
           {" "}
           DRAW SIGNATURE WITH MOUSE ON DESKTOP / FINGER ON MOBILE OR TABLET
@@ -84,12 +84,8 @@ export default function Home() {
           document, you agree to let us do this. For each claim, we will create
           a new damages-based agreement for you to review.
         </p>
-        <button
-          onClick={handleClick}
-          className="w-full px-8 py-3 bg-[#3EBE5A]  text-white text-xl border-[1px] border-b-4 border-solid border-[#1C1C1C]"
-        >
-          Submit Claim
-        </button>
+
+        <Button onClick={handleClick}>Submit Claim</Button>
 
         <LargestRefund />
         <p className="text-xs  pb-6">

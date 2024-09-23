@@ -6,6 +6,9 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import CombinedFooter from "../components/CombinedFooter";
 import NextWarning from "../components/NextWarning";
+import ProgressBar from "../components/ProgressBar";
+import SecondaryTitle from "../components/SecondaryTitle";
+import Button from "../components/Button";
 
 export default function Home() {
   const router = useRouter();
@@ -20,7 +23,7 @@ export default function Home() {
 
   const handleNumberChange = (event) => {
     setNumber(event.target.value);
-
+    setNumError(false);
     const isValid = numberRegex.test(event.target.value);
     setIsValidNumber(isValid);
   };
@@ -29,7 +32,7 @@ export default function Home() {
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
-
+    setEmailError(false);
     const isValid = emailRegex.test(event.target.value);
 
     setIsValidEmail(isValid);
@@ -47,14 +50,11 @@ export default function Home() {
   };
   return (
     <div className="bg-[#FAFAFA]">
-      <div className="w-full bg-[#4376BE]  h-6 ">
-        <div className=" bg-[#3EBE5A] h-6 " style={{ width: "50%" }}></div>
-      </div>
+      <ProgressBar percentage="50%" />
       <div className="p-6">
         <p className="text-sm font-bold  ">Perfect!</p>
-        <h2 className=" text-2xl font-bold pb-4  ">
-          Now let's enter your phone number
-        </h2>
+
+        <SecondaryTitle>Now let's enter your phone number</SecondaryTitle>
         <form onSubmit={handleSubmit}>
           <label
             htmlFor="default-search"
@@ -79,9 +79,8 @@ export default function Home() {
           <p className="text-sm font-bold pt-6 ">
             It's good to have two points of contact...
           </p>
-          <h2 className=" text-2xl font-bold pb-4  ">
-            What's your email address?
-          </h2>
+          <SecondaryTitle> What's your email address? </SecondaryTitle>
+
           <label
             htmlFor="default-search"
             className="mb-2 text-sm font-medium text-gray-900 "
@@ -91,23 +90,19 @@ export default function Home() {
           <p className="text-xs pb-2 ">
             We need this so we can keep you updated on your claim by email
           </p>
-          <div className="space-y-8">
-            <input
-              type="email"
-              placeholder=""
-              value={email}
-              onChange={handleEmailChange}
-              className=" w-full p-3 ps-10 text-sm text-gray-900 border border-[#1C1C1C]  "
-            />
-            {emailError ? (
-              <p className="text-sm font-bold "> Please enter a valid email</p>
-            ) : null}
-            <button
-              type="submit"
-              className="w-full px-8 py-3 bg-[#3EBE5A]  text-white text-xl border-[1px] border-b-4 border-solid border-[#1C1C1C]"
-            >
-              Next
-            </button>
+
+          <input
+            type="email"
+            placeholder=""
+            value={email}
+            onChange={handleEmailChange}
+            className=" w-full p-3 ps-6 text-sm text-gray-900 border border-[#1C1C1C]  "
+          />
+          {emailError ? (
+            <p className="text-sm font-bold "> Please enter a valid email</p>
+          ) : null}
+          <div className="pt-16">
+            <Button type="submit">Next</Button>
           </div>
         </form>
         <LargestRefund />
